@@ -1,7 +1,7 @@
 {
   "development": {
     "database": "digitalfootprintdev",
-    "host": "138.197.106.220",
+    "host": "127.0.0.1",
     "dialect": "postgres",
     "username": "DigitalFootprintUser",
     "password": "mypsqlpassword"
@@ -17,7 +17,7 @@
     "username": "root",
     "password": null,
     "database": "database_production",
-    "host": "138.197.106.220",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   }
 }

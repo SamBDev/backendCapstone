@@ -1,13 +1,20 @@
 'use strict';
-module.exports = (sequelize, DataTypes) => {
-  var Scan = sequelize.define('Scan', {
-    networkName: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
+module.exports = function(sequelize, DataTypes) {
+  var Scan = sequelize.define(
+    'Scan',
+    {
+      networkName: DataTypes.STRING
+    },
+    {
+      timestamps: true,
+      paranoid: true
     }
-  });
+  );
+
+  Scan.associate = models => {
+    Scan.belongsToMany(models.Device, {
+      through: 'ScansDevices'
+    });
+  };
   return Scan;
 };

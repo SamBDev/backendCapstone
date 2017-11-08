@@ -1,23 +1,34 @@
 'use strict';
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Devices', {
+    return queryInterface.createTable('ScansDevices', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      ipAddress: {
+      ScanId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        type: Sequelize.STRING
+        references: {
+          // Again, note the plural!!!!!
+          model: 'Scans',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
-      macAddress: {
+      DeviceId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        type: Sequelize.STRING
-      },
-      deviceName: {
-        type: Sequelize.STRING
+        references: {
+          model: 'Devices',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       createdAt: {
         allowNull: false,
@@ -29,7 +40,8 @@ module.exports = {
       }
     });
   },
+
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Devices');
+    return queryInterface.dropTable('ScansDevices');
   }
 };

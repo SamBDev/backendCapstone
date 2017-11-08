@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
   );
 
   Device.associate = models => {
-    Device.belongsToMany(models.Device, {
+    Device.belongsToMany(models.Scan, {
       through: 'ScansDevices'
     });
   };

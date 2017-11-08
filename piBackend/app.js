@@ -9,7 +9,7 @@ const port = process.env.PORT || 8888;
 // Setup bodyparser\
 app.use(bodyParser.json());
 
-// trying to allow CROS
+// trying to allow CORS
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');

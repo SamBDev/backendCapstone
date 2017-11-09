@@ -1,22 +1,18 @@
 'use strict';
-const  = require('scanCtrl')
+// const models = require();
 
 function requestScan() {
   console.log('request called');
-  let newReq = new XMLHttpRequest();
-  newReq.onreadystatechange = function() {
+  let getReq = new XMLHttpRequest();
+  getReq.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
+      let postReq = new XMLHttpRequest();
       console.log(this.response);
-      saveScanResults(this.response);
+      postReq.open('POST', '/', true);
+      postReq.setRequestHeader('Content-type', 'application/json');
+      postReq.send(JSON.stringify({ scanArr: this.response }));
     }
   };
-  newReq.open('GET', 'http://127.0.0.1:8888/', true);
-  newReq.send();
-}
-
-function saveScanResults(scanArr) {
-  const { Device, Scan } = req.app.get('models');
-  Device.bulkCreate(scanArr, { fields: [ip, mac, vendor] }).then(response => {
-    console.log(response);
-  });
+  getReq.open('GET', 'http://127.0.0.1:8888/', true);
+  getReq.send();
 }

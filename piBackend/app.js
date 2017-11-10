@@ -4,10 +4,17 @@ let bodyParser = require('body-parser');
 let routes = require('./routes/');
 
 // require('dotenv').config();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8888;
 
 // Setup bodyparser\
 app.use(bodyParser.json());
+
+// trying to allow CORS
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 
 app.use(routes);
 

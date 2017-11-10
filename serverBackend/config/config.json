@@ -4,7 +4,10 @@
     "host": "127.0.0.1",
     "dialect": "postgres",
     "username": "DigitalFootprintUser",
-    "password": "mypsqlpassword"
+    "password": "mypsqlpassword",
+    "options": {
+      "ssl": true
+    }
   },
   "test": {
     "username": "root",
@@ -14,10 +17,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "DigitalFootprintUser",
+    "password": "mypsqlpassword",
+    "database": "digitalfootprintdev",
+    "host": "138.197.106.220",
     "dialect": "mysql"
   }
 }

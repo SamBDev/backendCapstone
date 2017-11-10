@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 let bodyParser = require('body-parser');
 let routes = require('./routes/');
+const path = require('path');
 
 // require('dotenv').config();
 const port = process.env.PORT || 8080;
@@ -14,6 +15,8 @@ app.set('models', require('./models')); //pulls in models/index.js by default. I
 // Setup bodyparser\
 app.use(bodyParser.json());
 
+app.use(express.static(__dirname + '/public'));
+
 app.use(routes);
 
 // Middleware to deal with missed routes
@@ -24,13 +27,13 @@ app.use((req, res, next) => {
 });
 
 // Final error handler
-app.use((err, req, res, next) => {
-  res.status(err.status || 500);
-  res.json({
-    message: 'Unsuccessful',
-    err: err
-  });
-});
+// app.use((err, req, res, next) => {
+//   res.status(err.status || 500);
+//   res.json({
+//     message: 'Unsuccessful',
+//     err: err
+//   });
+// });
 
 // Start app
 app.listen(port, () => {

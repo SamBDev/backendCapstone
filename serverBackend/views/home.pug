@@ -1,5 +1,7 @@
 extends layout.pug
 block content
+	img(src="/images/digitalfootprint.jpg" alt="Digital Footprint")
 	h1 Welcome!
 	input#scanButton(type='button' value='Scan' onclick='requestScan()')
-	block content
+	br
+	div#scanResults

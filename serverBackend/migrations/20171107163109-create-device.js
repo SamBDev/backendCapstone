@@ -13,10 +13,15 @@ module.exports = {
         type: Sequelize.STRING
       },
       mac: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING
       },
       vendor: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
+      hostname: {
+        allowNull: true,
         type: Sequelize.STRING
       },
       createdAt: {

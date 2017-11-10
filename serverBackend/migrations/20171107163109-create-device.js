@@ -8,15 +8,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      ipAddress: {
+      ip: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      macAddress: {
+      mac: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      deviceName: {
+      vendor: {
         type: Sequelize.STRING
       },
       createdAt: {

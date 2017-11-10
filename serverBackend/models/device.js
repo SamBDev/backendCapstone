@@ -3,9 +3,9 @@ module.exports = function(sequelize, DataTypes) {
   var Device = sequelize.define(
     'Device',
     {
-      ipAddress: DataTypes.STRING,
-      macAddress: DataTypes.STRING,
-      deviceName: DataTypes.STRING
+      ip: DataTypes.STRING,
+      mac: DataTypes.STRING,
+      vendor: DataTypes.STRING
     },
     {
       timestamps: true,

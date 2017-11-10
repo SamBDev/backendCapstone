@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     {
       ip: DataTypes.STRING,
       mac: DataTypes.STRING,
-      vendor: DataTypes.STRING
+      vendor: DataTypes.STRING,
+      hostname: DataTypes.STRING
     },
     {
       timestamps: true,

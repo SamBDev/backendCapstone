@@ -1,0 +1,17 @@
+extends home.pug
+block content
+	h1 Scan Results
+	table(class="table")
+		thead
+			tr
+				th(scope="col") IP
+				th(scope="col") MAC
+				th(scope="col") Hostname
+				th(scope="col") Vendor
+		tbody
+			each device in dataValues
+				tr
+					td #{device.ip}
+					td #{device.mac}
+					td #{device.vendor}
+					td #{device.hostname}
